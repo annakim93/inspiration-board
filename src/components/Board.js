@@ -12,7 +12,7 @@ const generateCardComponents = () => {
   const cardList = [];
 
   for (let card of CARD_DATA.cards) {
-    cardList.push(<Card optionalText={card.text} optionalEmoji={card.emoji} />)
+    cardList.push(<Card optionalText={ card.text } optionalEmoji={ card.emoji } />)
   }
 
   return cardList;
@@ -21,8 +21,8 @@ const generateCardComponents = () => {
 const Board = () => {
   const cardList = generateCardComponents();
   return (
-    <div>
-      {cardList}
+    <div className="board">
+      { cardList }
     </div>
   )
 };
