@@ -7,13 +7,26 @@ import Card from './Card';
 import NewCardForm from './NewCardForm';
 import CARD_DATA from '../data/card-data.json';
 
+
+const generateCardComponents = () => {
+  const cardList = [];
+
+  for (let card of CARD_DATA.cards) {
+    cardList.push(<Card optionalText={card.text} optionalEmoji={card.emoji} />)
+  }
+
+  return cardList;
+};
+
 const Board = () => {
+  const cardList = generateCardComponents()
   return (
     <div>
-      Board
+      {cardList}
     </div>
   )
 };
+
 Board.propTypes = {
 
 };

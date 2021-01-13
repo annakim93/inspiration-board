@@ -13,7 +13,8 @@ const Card = () => {
 }
 
 Card.propTypes = {
-
+  optionalText: PropTypes.string,
+  optionalEmoji: PropTypes.string
 };
 
 export default Card;
