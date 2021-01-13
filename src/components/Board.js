@@ -19,7 +19,7 @@ const generateCardComponents = () => {
 };
 
 const Board = () => {
-  const cardList = generateCardComponents()
+  const cardList = generateCardComponents();
   return (
     <div>
       {cardList}
