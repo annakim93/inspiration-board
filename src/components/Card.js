@@ -23,6 +23,7 @@ const Card = (props) => {
 }
 
 Card.propTypes = {
+  id: PropTypes.number.isRequired,
   optionalText: PropTypes.string,
   optionalEmoji: PropTypes.string,
   deleteCardCallback: PropTypes.func.isRequired
