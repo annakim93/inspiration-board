@@ -12,7 +12,8 @@ const generateCardComponents = (apiResponse) => {
   const cardList = [];
 
   for (let card of apiResponse) {
-    cardList.push(<Card key={card.card.id} optionalText={ card.card.text } optionalEmoji={ card.card.emoji } />)
+    const singleCard = card.card
+    cardList.push(<Card key={ singleCard.id } optionalText={ singleCard.text } optionalEmoji={ singleCard.emoji } />)
   }
 
   return cardList;
@@ -21,7 +22,6 @@ const generateCardComponents = (apiResponse) => {
 const Board = (props) => {
   const [cardList, setCardList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
-  // const cardList = generateCardComponents();
 
   useEffect(() => {
     axios.get(props.url + props.boardName + '/cards')
@@ -40,6 +40,14 @@ const Board = (props) => {
 
   return (
     <div className="board">
+      { errorMessage 
+        ? <div className='validation-errors-display'>
+          <ul className='validation-errors-display__list'>
+            { errorMessage }
+          </ul>
+        </div> 
+        : ''
+      }
       { cardList }
     </div>
   )
