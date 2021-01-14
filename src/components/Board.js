@@ -5,7 +5,7 @@ import axios from 'axios';
 import './Board.css';
 import Card from './Card';
 import NewCardForm from './NewCardForm';
-import CARD_DATA from '../data/card-data.json';
+// import CARD_DATA from '../data/card-data.json';
 
 
 const Board = (props) => {
@@ -62,7 +62,7 @@ const Board = (props) => {
   };
 
   return (
-    <div className="board">
+    <div>
       { alert 
         ? <div className='validation-errors-display'>
           <ul className='validation-errors-display__list'>
@@ -71,7 +71,9 @@ const Board = (props) => {
         </div> 
         : ''
       }
-      { generateCardComponents(cardList) }
+      <div className="board">
+        { generateCardComponents(cardList) }
+      </div>
     </div>
   )
 };
