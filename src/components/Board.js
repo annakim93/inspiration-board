@@ -24,7 +24,7 @@ const Board = (props) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
-    axios.get(props.url + props.boardName + '/cards')
+    axios.get(props.url + 'boards/' + props.boardName + '/cards')
       .then((response) => {
         const apiCardList = generateCardComponents(response.data);
         setCardList(apiCardList);
@@ -37,6 +37,23 @@ const Board = (props) => {
   // useEffect(() => {
     
   // });
+
+  const deleteCard = (id) => {
+    const newCardList = cardList.filter((card) => {
+      return card.id !== id;
+    });
+
+    if (newCardList.length < cardList.length) {
+      axios.delete(props.url + 'cards' + id)
+        .then((response) => {
+          setErrorMessage(`Card #${id} successfully deleted.`);
+        })
+        .catch((error) => {
+          setErrorMessage(`Failed to delete card #${id}.`);
+        })
+      setCardList(newCardList);
+    }
+  };
 
   return (
     <div className="board">
