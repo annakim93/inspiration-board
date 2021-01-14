@@ -8,20 +8,35 @@ import NewCardForm from './NewCardForm';
 import CARD_DATA from '../data/card-data.json';
 
 
-// const generateCardComponents = () => {
-//   const cardList = [];
+const generateCardComponents = (apiResponse) => {
+  const cardList = [];
 
-//   for (let card of CARD_DATA.cards) {
-//     cardList.push(<Card optionalText={ card.text } optionalEmoji={ card.emoji } />)
-//   }
+  for (let card of apiResponse) {
+    cardList.push(<Card key={card.card.id} optionalText={ card.card.text } optionalEmoji={ card.card.emoji } />)
+  }
 
-//   return cardList;
-// };
+  return cardList;
+};
 
 const Board = (props) => {
   const [cardList, setCardList] = useState([]);
   const [errorMessage, setErrorMessage] = useState(null);
   // const cardList = generateCardComponents();
+
+  useEffect(() => {
+    axios.get(props.url + props.boardName + '/cards')
+      .then((response) => {
+        const apiCardList = generateCardComponents(response.data);
+        setCardList(apiCardList);
+      })
+      .catch((error) => {
+        setErrorMessage(error.message);
+      });
+  }, []);
+
+  // useEffect(() => {
+    
+  // });
 
   return (
     <div className="board">
