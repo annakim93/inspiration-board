@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import emoji from 'emoji-dictionary';
 import './NewCardForm.css';
@@ -14,7 +14,10 @@ const EMOJI_LIST = [
 ]
 
 const NewCardForm = (props) => {
-
+  const [formFields, setFormFields] = useState({
+    text: '',
+    emoji: ''
+  });
 };
 
 export default NewCardForm;
