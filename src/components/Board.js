@@ -9,60 +9,64 @@ import CARD_DATA from '../data/card-data.json';
 
 
 const Board = (props) => {
+  const BOARD_API_URL_BASE = props.url + 'boards/';
+  const CARDS_API_URL_BASE = props.url + 'cards/';
+  
   const [cardList, setCardList] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [alert, setAlert] = useState(null);
 
   const generateCardComponents = (apiResponse) => {
     const currentCardList = [];
   
     for (let card of apiResponse) {
-      currentCardList.push(<Card 
-        key={ card.id }  
-        id={ card.id } 
-        optionalText={ card.text } 
-        optionalEmoji={ card.emoji } 
-        deleteCardCallback={ deleteCard }
-      />)
+      currentCardList.push(
+        <Card 
+          key={ card.id }  
+          id={ card.id } 
+          optionalText={ card.text } 
+          optionalEmoji={ card.emoji } 
+          deleteCardCallback={ deleteCard }
+        />
+      )
     }
   
     return currentCardList;
   };
 
   useEffect(() => {
-    axios.get(props.url + 'boards/' + props.boardName + '/cards')
+    axios.get(BOARD_API_URL_BASE + props.boardName + '/cards')
       .then((response) => {
         const apiCardList = response.data.map(card => card.card);
         setCardList(apiCardList);
       })
       .catch((error) => {
-        setErrorMessage(error.message);
+        setAlert(error.message);
       });
   }, []);
 
   const deleteCard = (id) => {
-    console.log(cardList);
     const newCardList = cardList.filter((card) => {
       return card.id !== id;
     });
 
     if (newCardList.length < cardList.length) {
-      axios.delete(props.url + 'cards/' + id)
+      axios.delete(CARDS_API_URL_BASE + id)
         .then((response) => {
-          setErrorMessage(`Card #${id} successfully deleted.`);
+          setAlert(`Card #${id} successfully deleted.`);
           setCardList(newCardList);
         })
         .catch((error) => {
-          setErrorMessage(`Failed to delete card #${id}.`);
+          setAlert(`Failed to delete card #${id}.`);
         })
     }
   };
 
   return (
     <div className="board">
-      { errorMessage 
+      { alert 
         ? <div className='validation-errors-display'>
           <ul className='validation-errors-display__list'>
-            { errorMessage }
+            { alert }
           </ul>
         </div> 
         : ''
