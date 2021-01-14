@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 
@@ -8,18 +8,21 @@ import NewCardForm from './NewCardForm';
 import CARD_DATA from '../data/card-data.json';
 
 
-const generateCardComponents = () => {
-  const cardList = [];
+// const generateCardComponents = () => {
+//   const cardList = [];
 
-  for (let card of CARD_DATA.cards) {
-    cardList.push(<Card optionalText={ card.text } optionalEmoji={ card.emoji } />)
-  }
+//   for (let card of CARD_DATA.cards) {
+//     cardList.push(<Card optionalText={ card.text } optionalEmoji={ card.emoji } />)
+//   }
 
-  return cardList;
-};
+//   return cardList;
+// };
 
-const Board = () => {
-  const cardList = generateCardComponents();
+const Board = (props) => {
+  const [cardList, setCardList] = useState([]);
+  const [errorMessage, setErrorMessage] = useState(null);
+  // const cardList = generateCardComponents();
+
   return (
     <div className="board">
       { cardList }
