@@ -1,3 +1,7 @@
+/* * {
+  border: black 1px solid;
+} */
+
 .card {
   background-color: #F4FF81;
 
@@ -42,6 +46,8 @@
 }
 
 .card__delete {
-  align-self: start;
+  margin-top: 2rem;
+  align-self: center;
+  grid-column: 2;
   font-family: 'Permanent Marker', Helvetica, sans-serif;
 }
