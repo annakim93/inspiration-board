@@ -21,11 +21,11 @@ const Board = (props) => {
     for (let card of apiResponse) {
       currentCardList.push(
         <Card 
-          key={ card.id }  
-          id={ card.id } 
-          optionalText={ card.text } 
-          optionalEmoji={ card.emoji } 
-          deleteCardCallback={ deleteCard }
+          key={card.id}  
+          id={card.id} 
+          optionalText={card.text} 
+          optionalEmoji={card.emoji} 
+          deleteCardCallback={deleteCard}
         />
       )
     }
@@ -83,6 +83,7 @@ const Board = (props) => {
         </div> 
         : ''
       }
+      <NewCardForm addCardCallback={addCard} />
       <div className="board">
         { generateCardComponents(cardList) }
       </div>
