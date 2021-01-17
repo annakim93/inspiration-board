@@ -8,6 +8,6 @@ describe('App', () => {
 
   it('renders without crashing', () => {
     render(<App />);
-    expect(screen.getByText(/Inspiration Board/i)).toBeInTheDocument();
+    expect(screen.getByText(/Inspo Board/i)).toBeInTheDocument();
   });
 });
