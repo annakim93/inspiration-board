@@ -43,11 +43,12 @@ const NewCardForm = (props) => {
           <form onSubmit={onFormSubmit} className='new-card-form__bg-color'>
             <textarea name='text' onChange={onInputChange} value={formFields.text} placeholder='Write your message here' />
             
-            <select name='emoji' onChange={onInputChange} value={formFields.emoji}>
+            <select name='emoji' onChange={onInputChange} value={formFields.emoji} placeholder='Emoji'>
+              <option value='' disabled selected>Emoji Selection</option>
               { EMOJI_LIST.map((emoji, index) => <option key={index}>{emoji}</option>) }
             </select>
 
-            <input type='submit' value='Add Inspo!' className='card__delete' />
+            <input type='submit' value='Add Inspo!' className='new-card-form__form-button' />
           </form>
         </div>
       </div>

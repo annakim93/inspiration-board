@@ -4,19 +4,27 @@ import emoji from 'emoji-dictionary';
 
 import './Card.css';
 
+const CARD_COLORS = [
+  'bg-color-yellow',
+  'bg-color-pink',
+  'bg-color-orange'
+];
+
 const Card = (props) => {
+  const cardColor = CARD_COLORS[Math.floor(Math.random() * CARD_COLORS.length)];
+  
   return (
-    <div className="card">
-      <div className="card__content bg-color-yellow">
-        <p className="card__content-text bg-color-yellow">
+    <div className={`card ${cardColor}`}>
+      <button className="delete-button" onClick={ () => props.deleteCardCallback(props.id) }>
+          X
+      </button>
+      <div className={`card__content ${cardColor}`}>
+        <p className={`card__content-text ${cardColor}`}>
           { props.optionalText ? props.optionalText : null }
         </p>
-        <p className="card__content-emoji bg-color-yellow">
+        <p className={`card__content-emoji ${cardColor}`}>
           { props.optionalEmoji ? emoji.getUnicode(props.optionalEmoji) : null }
         </p>
-        <button className="card__delete" onClick={ () => props.deleteCardCallback(props.id) }>
-          Delete
-        </button>
       </div>
     </div>
   )

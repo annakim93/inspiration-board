@@ -6,6 +6,7 @@
 
 .new-card-form__bg-color {
   background-color: #FFE099;
+  box-shadow: 10px 10px 0px 0px #E29578;
 }
 
 .new-card-form__container {
@@ -49,7 +50,13 @@
 }
 
 .new-card-form__form-button {
-  background-color: inherit;
-  border: 1px solid black;
+  background-color: #f5847b;
+  border: 1px solid #4a6163;
   font-size: 1em;
+  border-radius: 5px;
+}
+
+.new-card-form__form-button:hover {
+  background-color: #7cb518;
+  font-style: italic;
 }
