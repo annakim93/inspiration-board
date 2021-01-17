@@ -7,11 +7,11 @@ import './Card.css';
 const Card = (props) => {
   return (
     <div className="card">
-      <div className="card__content">
-        <p className="card__content-text">
+      <div className="card__content bg-color-yellow">
+        <p className="card__content-text bg-color-yellow">
           { props.optionalText ? props.optionalText : null }
         </p>
-        <p className="card__content-emoji">
+        <p className="card__content-emoji bg-color-yellow">
           { props.optionalEmoji ? emoji.getUnicode(props.optionalEmoji) : null }
         </p>
         <button className="card__delete" onClick={ () => props.deleteCardCallback(props.id) }>

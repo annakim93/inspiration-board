@@ -75,16 +75,14 @@ const Board = (props) => {
 
   return (
     <div className='board-container'>
-      <div className='left-side'>
+      <div className='board-container__left-side'>
         <h1 className="header__h1">
-            <span>inspo </span>
-            <span className='header__text--stroke'>board</span>
+          <span>inspo </span>
+          <span className='header__text--stroke'>board</span>
         </h1>
         { alert 
-          ? <div className='validation-errors-display'>
-            <ul className='validation-errors-display__list'>
-              { alert }
-            </ul>
+          ? <div className='alert-display'>
+            <span>{ alert }</span>
           </div> 
           : ''
        }

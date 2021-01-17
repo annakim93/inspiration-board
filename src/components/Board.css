@@ -1,20 +1,27 @@
 .board-container {
-  display: grid;
-  grid-template-columns: 2fr 3fr;
+  margin-top: 5%;
+}
+
+.board-container__left-side {
+  position: fixed;
+  width: 30%;
+  margin-left: 5%;
+  margin-right: 10% !important;
 }
 
 .board {
+  margin-left: 30%;
+  width: 70%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.validation-errors-display {
-  text-align: center;
+.alert-display {
+  font-weight: 500;
   margin-bottom: 2em;
 }
 
-.validation-errors-display__list {
-  list-style-type: none;
-  padding: 0;
+.alert-display span {
+  background-color: #ffc94b;
 }

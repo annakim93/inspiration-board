@@ -37,20 +37,18 @@ const NewCardForm = (props) => {
 
   return (
     <div>
-      <h3 className='new-card-form__header'>Add your own inspo using the sticky below!</h3>
-      <div className='new-card-form__container'>
-        <div className='new-card-form'>
-          <div className='card__content'>
-            <form className='new-card-form__form' onSubmit={onFormSubmit}>
-              <label htmlFor='text' className='new-card-form__form-label'>Message</label>
-              <input name='text' onChange={onInputChange} value={formFields.text} className='new-card-form__form-textarea' />
-              
-              <label htmlFor='emoji' className='new-card-form__form-label'>Emoji</label>
-              <input name='emoji' onChange={onInputChange} value={formFields.emoji} className='new-card-form__form-textarea' />
+      <span>Add a msg using the sticky below!</span>
+      <div className='new-card-form new-card-form__bg-color'>
+        <div className='card__content'>
+          <form onSubmit={onFormSubmit} className='new-card-form__bg-color'>
+            <textarea name='text' onChange={onInputChange} value={formFields.text} placeholder='Write your message here' />
+            
+            <select name='emoji' onChange={onInputChange} value={formFields.emoji}>
+              { EMOJI_LIST.map((emoji, index) => <option key={index}>{emoji}</option>) }
+            </select>
 
-              <input type='submit' value='Add Inspo!' className='new-card-form__form-button' />
-            </form>
-          </div>
+            <input type='submit' value='Add Inspo!' className='card__delete' />
+          </form>
         </div>
       </div>
     </div>

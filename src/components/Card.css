@@ -1,6 +1,6 @@
-/* * {
-  border: black 1px solid;
-} */
+.bg-color-yellow {
+  background-color: #fee441;
+}
 
 .card {
   background-color: #fee441;
@@ -17,6 +17,7 @@
   display: grid;
   grid-template-columns: 1fr 5fr 1fr;
   align-items: center;
+  overflow: hidden;
 }
 
 .card__content {
