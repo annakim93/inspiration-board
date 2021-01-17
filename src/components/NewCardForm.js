@@ -18,6 +18,14 @@ const NewCardForm = (props) => {
     text: '',
     emoji: ''
   });
+
+  const onInputChange = (event) => {
+    const newFormFields = { ...formFields }
+    newFormFields[event.target.name] = event.target.value;
+    setFormFields(newFormFields);
+  };
+
+  
 };
 
 NewCardForm.propTypes = {
