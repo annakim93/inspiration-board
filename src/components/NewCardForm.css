@@ -1,5 +1,9 @@
 /* The Modal (background) */
 
+* {
+  border: black 1px solid;
+}
+
 .new-card-form {
   width: 50%;
   margin: auto;
