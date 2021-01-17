@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:wght@400;700&family=Rubik:wght@900&display=swap');
+
 * {
   box-sizing: border-box;
 }
@@ -7,7 +9,9 @@ body {
 }
 
 h1, h2 {
-  font-family: 'Permanent Marker', Helvetica, sans-serif;
+  /* font-family: 'Permanent Marker', Helvetica, sans-serif; */
+  /* font-family: 'Montserrat Alternates', sans-serif; */
+  font-family: 'Rubik', sans-serif;
 }
 
 .header {
@@ -17,6 +21,9 @@ h1, h2 {
 .header__h1 {
   margin: auto 0;
   text-align: center;
+  font-weight: 800;
+  font-size: 3rem;
+  color: #0d3b66;
 }
 
 .header__text {
@@ -30,4 +37,9 @@ h1, h2 {
   font-size: 3rem;
 
   transform: rotate(-3deg) skew(-3deg);
+}
+
+.header__text--stroke {
+  -webkit-text-stroke: 2px #9b5de5; /* width and color */
+  color: rgba(0, 0, 0, 0); /* makes just the font sans border transparent */
 }

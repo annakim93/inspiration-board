@@ -5,11 +5,12 @@ import Board from './components/Board';
 const App = () => {
   return (
     <section>
-      <header className="header">
+      {/* <header className="header">
         <h1 className="header__h1">
-          <span className="header__text">Inspo Board</span>
+          <span>inspo </span>
+          <span className='header__text--stroke'>board</span>
         </h1>
-      </header>
+      </header> */}
       <Board
         url="https://inspiration-board.herokuapp.com/"
         boardName='anna-kim'
