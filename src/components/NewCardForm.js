@@ -25,7 +25,14 @@ const NewCardForm = (props) => {
     setFormFields(newFormFields);
   };
 
-  
+  const onFormSubmit = (event) => {
+    event.preventDefault();
+    props.addCardCallback(formFields);
+    setFormFields({
+      text: '',
+      emoji: ''
+    });
+  };
 };
 
 NewCardForm.propTypes = {
