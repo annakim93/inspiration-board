@@ -64,7 +64,7 @@ const Board = (props) => {
   const addCard = (newCard) => {
     axios.post(BOARD_API_URL_BASE + props.boardName + '/cards', newCard)
       .then((response) => {
-        const newCardList = [...cardList, response.data];
+        const newCardList = [...cardList, response.data.card];
         setCardList(newCardList);
         setAlert('Successfully added new inspo card to the board!');
       })
