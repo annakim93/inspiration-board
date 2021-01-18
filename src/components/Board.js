@@ -32,6 +32,7 @@ const Board = props => {
       .then((response) => {
         const apiCardList = response.data.map(card => card.card);
         setCardList(apiCardList);
+        setAlert(null);
       })
       .catch((error) => {
         setAlert(error.message);
@@ -94,7 +95,7 @@ const Board = props => {
       <div className='board-container__nav'>
         {/* { currentBoard }'s board */}
         <select name='studentBoard' onChange={onInputChange}>
-          <option value='' disabled selected>{ currentBoard } (current)</option>
+          <option value='' disabled selected>{ currentBoard }</option>
           { studentBoards.map((boardName, index) => <option key={index}>{ boardName }</option>) }
         </select>
       </div>
