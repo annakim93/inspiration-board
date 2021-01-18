@@ -47,7 +47,7 @@ const Board = props => {
     if (newCardList.length < cardList.length) {
       axios.delete(CARDS_API_URL_BASE + id)
         .then((response) => {
-          setAlert(`Card #${id} successfully deleted.`);
+          setAlert(`Card #${id} successfully deleted from ${ currentBoard }'s board.`);
           setCardList(newCardList);
         })
         .catch((error) => {
@@ -61,7 +61,7 @@ const Board = props => {
       .then((response) => {
         const newCardList = [...cardList, response.data.card];
         setCardList(newCardList);
-        setAlert('Successfully added new inspo card to the board!');
+        setAlert(`Successfully added new inspo card to ${ currentBoard }'s board!`);
       })
       .catch((error) => {
         setAlert(error.message);
@@ -93,7 +93,7 @@ const Board = props => {
   return (
     <div className='board-container'>
       <div className='board-container__nav'>
-        {/* { currentBoard }'s board */}
+        <span>Current board:</span>
         <select name='studentBoard' onChange={onInputChange}>
           <option value='' disabled selected>{ currentBoard }</option>
           { studentBoards.map((boardName, index) => <option key={index}>{ boardName }</option>) }

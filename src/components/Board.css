@@ -8,19 +8,17 @@
   position: fixed;
   display: flex;
   font-size: smaller;
-  /* color: #607D80; */
-  /* background-color: #f9faf3; */
-  /* width: 100%; */
-  /* border: black 1px solid; */
+  align-items: center;
 }
 
 .board-container__nav span {
   white-space: nowrap;
+  margin-right: 15px;
 }
 
 .board-container__left-side {
   position: fixed;
-  width: 30%;
+  width: 25%;
   margin-right: 10% !important;
 }
 

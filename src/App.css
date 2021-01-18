@@ -35,6 +35,7 @@ textarea, input, button, select {
   font-size: inherit;
   font-weight: inherit;
   color: inherit;
+  border-radius: 5px;
   width: 98%;
   margin-top: 10px;
   margin-bottom: 10px;
