@@ -56,12 +56,14 @@ const Board = props => {
     }
   };
 
-  const addCard = newCard => {
-    axios.post(BOARD_API_URL_BASE + currentBoard + '/cards', newCard)
+  const addCard = (newCard, targetBoard) => {
+    axios.post(BOARD_API_URL_BASE + targetBoard + '/cards', newCard)
       .then((response) => {
-        const newCardList = [...cardList, response.data.card];
-        setCardList(newCardList);
-        setAlert(`Successfully added new inspo card to ${ currentBoard }'s board!`);
+        if (targetBoard === currentBoard) {
+          const newCardList = [...cardList, response.data.card];
+          setCardList(newCardList);
+        }
+        setAlert(`Successfully added new inspo card to ${ targetBoard }'s board!`);
       })
       .catch((error) => {
         setAlert(error.message);
@@ -110,7 +112,7 @@ const Board = props => {
           </div> 
           : ''
         }
-        <NewCardForm addCardCallback={addCard} />
+        <NewCardForm addCardCallback={addCard} currentBoard={currentBoard} studentBoards={studentBoards} />
       </div>
       <div className='board-container__content'>
         <div className="board-container__content__cards">
