@@ -10,7 +10,7 @@ const CARD_COLORS = [
   'bg-color-orange'
 ];
 
-const Card = (props) => {
+const Card = props => {
   const cardColor = CARD_COLORS[Math.floor(Math.random() * CARD_COLORS.length)];
 
   return (

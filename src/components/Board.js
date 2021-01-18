@@ -56,7 +56,7 @@ const Board = props => {
   };
 
   const addCard = newCard => {
-    axios.post(BOARD_API_URL_BASE + props.boardName + '/cards', newCard)
+    axios.post(BOARD_API_URL_BASE + currentBoard + '/cards', newCard)
       .then((response) => {
         const newCardList = [...cardList, response.data.card];
         setCardList(newCardList);
@@ -85,12 +85,16 @@ const Board = props => {
     return currentCardList;
   };
 
+  const onInputChange = event => {
+    setCurrentBoard(event.target.value);
+  };
+
   return (
     <div className='board-container'>
       <div className='board-container__nav'>
         {/* { currentBoard }'s board */}
-        <select name='studentBoard'>
-          <option value='' disabled selected>{ currentBoard }</option>
+        <select name='studentBoard' onChange={onInputChange}>
+          <option value='' disabled selected>{ currentBoard } (current)</option>
           { studentBoards.map((boardName, index) => <option key={index}>{ boardName }</option>) }
         </select>
       </div>

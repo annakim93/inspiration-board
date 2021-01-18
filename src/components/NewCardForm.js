@@ -15,19 +15,19 @@ const EMOJI_LIST = [
   "dog"
 ]
 
-const NewCardForm = (props) => {
+const NewCardForm = props => {
   const [formFields, setFormFields] = useState({
     text: '',
     emoji: ''
   });
 
-  const onInputChange = (event) => {
+  const onInputChange = event => {
     const newFormFields = { ...formFields }
     newFormFields[event.target.name] = event.target.value;
     setFormFields(newFormFields);
   };
 
-  const onFormSubmit = (event) => {
+  const onFormSubmit = event => {
     event.preventDefault();
     props.addCardCallback(formFields);
     setFormFields({
