@@ -1,15 +1,32 @@
 .board-container {
-  margin-top: 5%;
+  margin-left: 5%;
+}
+
+.board-container__nav {
+  margin-top: 2%;
+  top: 0;
+  position: fixed;
+  display: flex;
+  background-color: #f9faf3;
+  /* width: 100%; */
+  /* border: black 1px solid; */
+}
+
+.board-container__nav span {
+  white-space: nowrap;
 }
 
 .board-container__left-side {
   position: fixed;
   width: 30%;
-  margin-left: 5%;
   margin-right: 10% !important;
 }
 
-.board {
+.board-container__content {
+  margin-top: 5%;
+}
+
+.board-container__content__cards {
   margin-left: 30%;
   width: 70%;
   display: flex;
@@ -19,7 +36,7 @@
 
 .alert-display {
   font-weight: 500;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 .alert-display span {

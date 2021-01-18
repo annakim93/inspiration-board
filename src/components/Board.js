@@ -8,43 +8,37 @@ import NewCardForm from './NewCardForm';
 // import CARD_DATA from '../data/card-data.json';
 
 
-const Board = (props) => {
+const Board = props => {
   const BOARD_API_URL_BASE = props.url + 'boards/';
   const CARDS_API_URL_BASE = props.url + 'cards/';
   
   const [cardList, setCardList] = useState([]);
+  const [studentBoards, setStudentBoards] = useState([]);
   const [alert, setAlert] = useState(null);
-
-  const generateCardComponents = (apiResponse) => {
-    const currentCardList = [];
-  
-    for (let card of apiResponse) {
-      currentCardList.push(
-        <Card 
-          key={card.id}  
-          id={card.id} 
-          optionalText={card.text} 
-          optionalEmoji={card.emoji} 
-          deleteCardCallback={deleteCard}
-        />
-      )
-    }
-  
-    return currentCardList;
-  };
+  const [currentBoard, setCurrentBoard] = useState(props.boardName);
 
   useEffect(() => {
-    axios.get(BOARD_API_URL_BASE + props.boardName + '/cards')
+    axios.get(BOARD_API_URL_BASE)
+      .then((response) => {
+        setStudentBoards(response.data.map(board => board.board.name));
+      })
+      .catch((error) => {
+        setAlert(error.message);
+      })
+  }, []);
+
+  useEffect(() => {
+    axios.get(BOARD_API_URL_BASE + currentBoard + '/cards')
       .then((response) => {
         const apiCardList = response.data.map(card => card.card);
         setCardList(apiCardList);
       })
       .catch((error) => {
         setAlert(error.message);
-      });
-  }, []);
+      })
+  }, [currentBoard]);
 
-  const deleteCard = (id) => {
+  const deleteCard = id => {
     const newCardList = cardList.filter((card) => {
       return card.id !== id;
     });
@@ -61,7 +55,7 @@ const Board = (props) => {
     }
   };
 
-  const addCard = (newCard) => {
+  const addCard = newCard => {
     axios.post(BOARD_API_URL_BASE + props.boardName + '/cards', newCard)
       .then((response) => {
         const newCardList = [...cardList, response.data.card];
@@ -73,8 +67,33 @@ const Board = (props) => {
       })
   };
 
+  const generateCardComponents = cards => {
+    const currentCardList = [];
+  
+    for (let card of cards) {
+      currentCardList.push(
+        <Card 
+          key={card.id}  
+          id={card.id} 
+          optionalText={card.text} 
+          optionalEmoji={card.emoji} 
+          deleteCardCallback={deleteCard}
+        />
+      )
+    }
+  
+    return currentCardList;
+  };
+
   return (
     <div className='board-container'>
+      <div className='board-container__nav'>
+        {/* { currentBoard }'s board */}
+        <select name='studentBoard'>
+          <option value='' disabled selected>{ currentBoard }</option>
+          { studentBoards.map((boardName, index) => <option key={index}>{ boardName }</option>) }
+        </select>
+      </div>
       <div className='board-container__left-side'>
         <h1 className="header__h1">
           <span>inspo </span>
@@ -85,11 +104,13 @@ const Board = (props) => {
             <span>{ alert }</span>
           </div> 
           : ''
-       }
+        }
         <NewCardForm addCardCallback={addCard} />
       </div>
-      <div className="board">
-        { generateCardComponents(cardList) }
+      <div className='board-container__content'>
+        <div className="board-container__content__cards">
+          { generateCardComponents(cardList) }
+        </div>
       </div>
     </div>
   )
