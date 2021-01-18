@@ -12,7 +12,7 @@ const CARD_COLORS = [
 
 const Card = (props) => {
   const cardColor = CARD_COLORS[Math.floor(Math.random() * CARD_COLORS.length)];
-  
+  console.log(props)
   return (
     <div className={`card ${cardColor}`}>
       <button className="delete-button" onClick={ () => props.deleteCardCallback(props.id) }>

@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
-import emoji from 'emoji-dictionary';
+// import emoji from 'emoji-dictionary';
 import './NewCardForm.css';
 import './Card.css';
 
-// // Optional smaller list of emojis:
-// const EMOJI_LIST = [
-//   "", 
-//   "heart_eyes", 
-//   "beer", 
-//   "clap", 
-//   "sparkling_heart", 
-//   "heart_eyes_cat", 
-//   "dog"
-// ]
+// Using smaller list of emojis b/c full list using emoji.names does not allow for successful post request
+const EMOJI_LIST = [
+  "", 
+  "heart_eyes", 
+  "beer", 
+  "clap", 
+  "sparkling_heart", 
+  "heart_eyes_cat", 
+  "dog"
+]
 
 const NewCardForm = (props) => {
   const [formFields, setFormFields] = useState({
@@ -46,7 +46,8 @@ const NewCardForm = (props) => {
             
             <select name='emoji' onChange={onInputChange} value={formFields.emoji} placeholder='Emoji'>
               <option value='' disabled selected>Emoji Selection</option>
-              { emoji.names.map((emoji, index) => <option key={index}>{emoji}</option>) }
+              { EMOJI_LIST.map((emoji, index) => <option key={index}>{emoji}</option>) }
+              {/* { emoji.names.map((emoji, index) => <option key={index}>{emoji}</option>) } */}
             </select>
 
             <input type='submit' value='Add Inspo!' className='new-card-form__form-button' />
