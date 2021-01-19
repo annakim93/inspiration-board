@@ -43,3 +43,14 @@
 .alert-display span {
   background-color: #ffc94b;
 }
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .board-container {
+    margin-left: 10%;
+  }
+  
+  .board-container__nav {
+    position: static;
+    display: inline;
+  }
+}
