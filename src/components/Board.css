@@ -44,9 +44,15 @@
   background-color: #ffc94b;
 }
 
+@media (min-width: 481px) and (max-width: 767px) {
+  .board-container__left-side {
+    overflow-y: scroll;
+  }
+}
+
 @media (min-width: 320px) and (max-width: 480px) {
   .board-container {
-    margin-left: 10%;
+    margin: auto;
   }
   
   .board-container__nav {
