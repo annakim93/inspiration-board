@@ -53,6 +53,10 @@
 @media (min-width: 320px) and (max-width: 480px) {
   .board-container {
     margin: auto;
+    /* display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; */
   }
   
   .board-container__nav {
@@ -64,6 +68,10 @@
     position: static;
     width: 100%;
     margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
 
   .board-container__content__cards {
