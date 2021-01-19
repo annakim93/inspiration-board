@@ -46,3 +46,13 @@ textarea, input, button, select {
     text-align: center;
   }
 }
+
+@media (min-width: 481px) and (max-width: 767px) {
+  * {
+    box-sizing: content-box;
+  }
+
+  .header__h1 {
+    font-size: 3rem;
+  }
+}
