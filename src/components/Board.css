@@ -47,15 +47,15 @@
 @media (min-width: 481px) and (max-width: 767px) {
   .board-container__nav {
     position: static;
-    z-index: 0;
+    /* z-index: 0; */
+    width: 40%;
   }
-  
+
   .board-container__left-side {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
-    z-index: 1;
     width: 40%;
-    margin: auto;
+    /* margin: auto; */
     position: static;
   }
 }
