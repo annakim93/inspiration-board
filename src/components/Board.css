@@ -51,6 +51,17 @@
   
   .board-container__nav {
     position: static;
-    display: inline;
+    z-index: 0;
+  }
+
+  .board-container__left-side {
+    position: static;
+    width: 100%;
+    margin: auto;
+  }
+
+  .board-container__content__cards {
+    width: 100%;
+    margin: auto;
   }
 }
