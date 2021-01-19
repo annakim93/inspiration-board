@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 // import emoji from 'emoji-dictionary';
 import './NewCardForm.css';
@@ -20,8 +20,12 @@ const NewCardForm = props => {
     text: '',
     emoji: ''
   });
-
+  
   const [targetBoard, setTargetBoard] = useState(props.currentBoard);
+
+  useEffect(() => {
+    setTargetBoard(props.currentBoard)
+  }, [props]);
 
   const onInputChange = event => {
     const newFormFields = { ...formFields }
@@ -57,9 +61,9 @@ const NewCardForm = props => {
               {/* { emoji.names.map((emoji, index) => <option key={index}>{emoji}</option>) } */}
             </select>
 
-            <label>Destination board:</label>
+            <label htmlFor='boards' className='new-card-form__bg-color'>Destination board:</label>
             <select name='boards' onChange={onTargetBoardChange} value={targetBoard}>
-              <option value='' disabled selected>{props.currentBoard}</option>
+              <option value='' disabled selected>{ targetBoard }</option>
               { props.studentBoards.map((studentBoard, index) => <option key={index}>{studentBoard}</option>) }
             </select>
 
