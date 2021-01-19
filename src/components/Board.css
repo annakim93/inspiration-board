@@ -9,6 +9,7 @@
   display: flex;
   font-size: smaller;
   align-items: center;
+  z-index: 1;
 }
 
 .board-container__nav span {
