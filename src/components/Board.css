@@ -47,6 +47,8 @@
 @media (min-width: 481px) and (max-width: 767px) {
   .board-container__left-side {
     overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+    z-index: 1;
   }
 }
 
