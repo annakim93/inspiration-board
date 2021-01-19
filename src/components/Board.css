@@ -45,18 +45,26 @@
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
+  .board-container {
+    margin-left: auto;
+  }
+
   .board-container__nav {
     position: static;
-    /* z-index: 0; */
     width: 40%;
+    margin-left: 7%;
   }
 
   .board-container__left-side {
-    overflow-y: scroll;
-    -webkit-overflow-scrolling: touch;
-    width: 40%;
-    /* margin: auto; */
+    width: 100%;
     position: static;
+    display: flex;
+    margin-left: 7%;
+  }
+
+  .board-container__content__cards {
+    margin: auto;
+    width: 100%;
   }
 }
 
@@ -68,6 +76,7 @@
   .board-container__nav {
     position: static;
     z-index: 0;
+    width: 80%;
   }
 
   .board-container__left-side {

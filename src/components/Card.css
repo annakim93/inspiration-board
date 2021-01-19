@@ -60,3 +60,14 @@
   border-radius: 25px;
   font-size: smaller;
 }
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .card {
+    min-height: 225px;
+    min-width: 200px;
+  } 
+
+  .delete-button {
+    font-size: 0.7em;
+  }
+}

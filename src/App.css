@@ -53,6 +53,12 @@ textarea, input, button, select {
   }
 
   .header__h1 {
-    font-size: 3rem;
+    font-size: 6rem;
+    margin: 5% 10% 5% 0;
+    max-width: 300px;
+  }
+
+  textarea, input, button, select {
+    width: 90%;
   }
 }
