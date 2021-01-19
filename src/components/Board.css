@@ -45,12 +45,18 @@
 }
 
 @media (min-width: 481px) and (max-width: 767px) {
+  .board-container__nav {
+    position: static;
+    z-index: 0;
+  }
+  
   .board-container__left-side {
     overflow-y: scroll;
     -webkit-overflow-scrolling: touch;
     z-index: 1;
     width: 40%;
     margin: auto;
+    position: static;
   }
 }
 
